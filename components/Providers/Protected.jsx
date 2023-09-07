@@ -4,14 +4,11 @@ import {useSession} from 'next-auth/react'
 import { redirect } from 'next/navigation';
 
 
-// ---------------Typescript-----------------
-interface ProtectedProps {
-  children: ReactNode;
-}
 
 
 
-const Protected: React.FC<ProtectedProps> = ({ children }) => {
+
+const Protected = ({ children }) => {
 
     const {data:session, status} = useSession({
         required:true

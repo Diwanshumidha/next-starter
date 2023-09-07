@@ -1,11 +1,10 @@
 import NextAuth from "next-auth/next";
-import { NextAuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github"
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from "@/prisma/client";
 
-export const authOptions:NextAuthOptions = {
-    // @ts-expect-error
+export const authOptions = {
+ 
     adapter: PrismaAdapter(prisma),
     session:{
         strategy:'jwt'
@@ -15,8 +14,8 @@ export const authOptions:NextAuthOptions = {
     // Here Add all the providers
     providers: [
       GithubProvider({
-        clientId: process.env.GITHUB_ID as string,
-        clientSecret: process.env.GITHUB_SECRET as string,
+        clientId: process.env.GITHUB_ID,
+        clientSecret: process.env.GITHUB_SECRET,
       }),
      
     ],
